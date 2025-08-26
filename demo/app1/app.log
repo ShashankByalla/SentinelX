@@ -1,0 +1,19 @@
+nohup: ignoring input
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.31.10.100:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:00:28] "GET /health HTTP/1.1" 200 -
+INFO:app:FAULT triggered
+INFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:01:24] "POST /trigger HTTP/1.1" 200 -
+ERROR:app:ERROR: DB connection timeout - simulated
+INFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:01:24] "[35m[1mHEAD /health HTTP/1.1[0m" 500 -
+ERROR:app:ERROR: DB connection timeout - simulated
+INFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:02:00] "[35m[1mGET /health HTTP/1.1[0m" 500 -
+INFO:app:Recovered via /recover
+INFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:02:31] "POST /recover HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:02:32] "GET /health HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:03:12] "GET /health HTTP/1.1" 200 -

@@ -1,0 +1,15 @@
+nohup: ignoring input
+INFO:     Will watch for changes in these directories: ['/root/sentinelx']
+INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:     Started reloader process [7341] using StatReload
+INFO:     Started server process [7343]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:54380 - "GET /health HTTP/1.1" 200 OK
+{"event": "incident_detected", "incident": {"service": "app1", "env": "dev", "signals": {"health": false, "db_cpu": 10}, "last_logs": "nohup: ignoring input\\n * Serving Flask app 'app'\\n * Debug mode: off\\nINFO:werkzeug:\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\\n * Running on all addresses (0.0.0.0)\\n * Running on http://127.0.0.1:5001\\n * Running on http://172.31.10.100:5001\\nINFO:werkzeug:\u001b[33mPress CTRL+C to quit\u001b[0m\\nINFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:00:28] \"GET /health HTTP/1.1\" 200 -\\nINFO:app:FAULT triggered\\nINFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:01:24] \"POST /trigger HTTP/1.1\" 200 -\\nERROR:app:ERROR: DB connection timeout - simulated\\nINFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:01:24] \"\u001b[35m\u001b[1mHEAD /health HTTP/1.1\u001b[0m\" 500 -\\nERROR:app:ERROR: DB connection timeout - simulated\\nINFO:werkzeug:127.0.0.1 - - [24/Aug/2025 09:02:00] \"\u001b[35m\u001b[1mGET /health HTTP/1.1\u001b[0m\" 500 -"}}
+INFO:     127.0.0.1:59886 - "POST /incident/detect HTTP/1.1" 200 OK
+{"event": "decision", "decision": {"root_cause": "Database saturation causing connection timeouts", "confidence": 0.8, "playbook_id": "pb-021-db-timeout", "risk_score": 0.35, "summary": "DB CPU high; simulate scaling + restart app"}}
+{"event": "playbook_run", "pb": "pb-021-db-timeout", "results": [{"ok": true, "status": 200, "text": "{\"recovered\":true}\n"}]}
+{"event": "verify", "service": "app1", "ok": true}
+INFO:     127.0.0.1:33332 - "POST /incident/resolve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37618 - "GET /health HTTP/1.1" 200 OK

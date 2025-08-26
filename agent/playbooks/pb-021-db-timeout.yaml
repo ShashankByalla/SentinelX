@@ -1,0 +1,10 @@
+id: pb-021-db-timeout
+name: Simulated DB fix and restart app
+risk: 0.35
+actions:
+  - type: http_post
+    url: http://localhost:5001/recover
+verify:
+  - type: http
+    url: http://localhost:5001/health
+    expect_status: 200
