@@ -1,9 +1,11 @@
 id: pb-001-restart-app
 name: Safe restart (via app recover endpoint)
 risk: 0.2
+
 actions:
   - type: http_post
     url: http://localhost:5001/recover
+
 verify:
   - type: http
     url: http://localhost:5001/health

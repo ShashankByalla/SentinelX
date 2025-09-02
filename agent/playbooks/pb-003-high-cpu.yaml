@@ -1,0 +1,20 @@
+id: pb-003-high-cpu
+name: Handle High CPU Usage
+risk: 0.5
+vars:
+  TEST_MODE: true
+
+actions:
+  - type: shell
+    command: "docker restart sentinelx"   # In TEST_MODE, Python script will simulate
+  - type: shell
+    command: "docker restart sentinelx_nginx"   # In TEST_MODE, Python script will simulate
+
+verify:
+  - type: http
+    url: http://localhost:5001/health
+    expect_status: 200
+
+notes:
+  - "This playbook is triggered when high CPU is detected."
+  - "Use TEST_MODE=true to avoid affecting live containers during testing."

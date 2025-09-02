@@ -1,18 +1,20 @@
-version: "3.9"
-
 services:
   sentinelx:
-    image: sentinelx:latest
+    build: .                          # Build image from Dockerfile
     container_name: sentinelx
     restart: unless-stopped
     expose:
-      - "8080"               # Expose internally to Nginx
+      - "8080"
     volumes:
+      - ./agent:/app/agent            # Mount entire agent directory
       - ./sentinelx_data:/app/data
       - ./sentinelx_logs:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock   # 👈 allow docker CLI access
     environment:
       - ENV=production
       - LOG_LEVEL=info
+    pid: host
+    privileged: true
     networks:
       - sentinelx_net
 

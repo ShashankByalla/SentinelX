@@ -1,0 +1,14 @@
+id: pb-002-restart-nginx
+name: Restart Nginx Service
+risk: 0.25
+
+actions:
+  - type: shell
+    # Docker container approach
+    command: "docker restart sentinelx_nginx"
+    # Or if nginx runs on host: command: "systemctl restart nginx"
+
+verify:
+  - type: http
+    url: http://localhost
+    expect_status: 200
