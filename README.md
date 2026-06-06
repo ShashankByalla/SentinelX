@@ -161,13 +161,3 @@ SentinelX/
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/shashankbyalla/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/ShashankByalla)
 ```
-
----
-
-## After Pasting:
-
-1. Replace `your-linkedin` with your actual LinkedIn URL
-2. Add topics on repo page: `python` `devops` `monitoring` `docker` `nginx` `aws` `sre` `playbook` `observability` `incident-response`
-3. Make sure `certs/` is deleted and in `.gitignore` before making repo public again
-
-This is your **#1 pinned repo** — it deserves this README! 🚀
